@@ -60,18 +60,18 @@ function Create() {
     const addUser = async () => {
         // let data = {name:name, email:email, password:password}
 
-        if(data?.role === "admin"){
-            console.log("Here");
-            setErrors({...errors, 'role': "Invalid Role Assigned"})
-            console.log("Here");
-        }
+        // if(data?.role === "admin"){
+        //     console.log("Here");
+        //     setErrors({...errors, 'role': "Invalid Role Assigned"})
+        //     console.log("Here");
+        // }
 
-        if(!validPassword())
-        {
-            setErrors({...errors, 'password': "Password too weak"})
-        }
+        // if(!validPassword())
+        // {
+        //     setErrors({...errors, 'password': "Password too weak"})
+        // }
         
-        else{
+        // else{
             try{
                 await axios.post('http://localhost:5000/api/user', data);
                 setMsg("User Added Successfully");
@@ -92,7 +92,7 @@ function Create() {
             {
                 setMsg("<script>alert('Error Occured')</script>");
             }    
-        }
+        // }
     }
 
 
