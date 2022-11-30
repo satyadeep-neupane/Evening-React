@@ -1,8 +1,11 @@
 import Input from "common/Input";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
+    const navigate = useNavigate();
+
     const [data, setData] = useState({
         "email": "",
         "password": ""
@@ -19,12 +22,12 @@ function Login() {
         e.preventDefault();
         console.log(data);
 
-        try{
+        try {
             const res = await axios.post("http://localhost:5000/api/login", data);
             console.log(res.data);
             localStorage.setItem('access-token', JSON.stringify(res.data.accessToken));
-        }catch(err)
-        {
+            navigate('/category');
+        } catch (err) {
             console.log(err.message);
         }
     }
